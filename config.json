@@ -1,51 +1,25 @@
 {
-    "log": {
-      "loglevel": "warning",
-      "access": "/dev/null",
-      "error": "/dev/null"
-    },
+    
     "inbounds": [
       {
         "port": 2016,
-        "protocol": "shadowsocks",
+        "protocol": "vmess",
         "settings": {
-          "method": "aes-256-gcm",
-          "password": "20161102",
-          "network": "tcp,udp",
-          "level": 0
+          "clients": [
+            {
+              "id": "91a80c8a-fcc2-53e1-9184-791cafbdbbc9",
+              "alterId": 0
+            }
+          ] 
+          
         }
       }
     ],
     "outbounds": [
       {
         "protocol": "freedom",
-        "settings": {},
-        "tag": "allowed"
-      },
-      {
-        "protocol": "blackhole",
-        "settings": {},
-        "tag": "blocked"
+        "settings": {}
       }
-    ],
-    "routing": {
-      "rules": [
-        {
-          "domain": [
-            "google.com",
-            "apple.com",
-            "oppomobile.com"
-          ],
-          "type": "field",
-          "outboundTag": "allowed"
-        },
-        {
-          "type": "field",
-          "ip": [
-            "geoip:private"
-          ],
-          "outboundTag": "blocked"
-        }
       ]
     }
-  }
+  
